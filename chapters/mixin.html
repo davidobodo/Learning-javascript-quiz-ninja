@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //---------------------------------------------
+        //custom mixin to create hard copy of an object
+        //---------------------------------------------
+
+        function mixin(target, ...objects) {
+            for (const object of objects) {
+                if (typeof object === 'object') {
+                    for (const key of Object.keys(object)) {
+                        if (typeof object[key] === 'object') {
+                            target[key] = Array.isArray(object[key]) ? [] : {};
+                            mixin(target[key], object[key]);
+                        } else {
+                            Object.assign(target, object);
+                        }
+                    }
+                }
+            }
+            return target;
+        }
+
+        const myObject1 = {
+            name: 'david',
+            age: 24,
+            occupation: 'software engineer',
+            likes: [
+                'music', 'learning', 'coding', 'reading', 'movies'
+            ],
+            lifeTimeline: {
+                fasta: 2006,
+                navy: 2012,
+                uniben: 2018,
+                sumosoft: 2019
+            }
+        }
+
+    </script>
+</body>
+
+</html>

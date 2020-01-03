@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function collatz(n, sequence = [n]) {
+        //     if (n === 1) {
+        //         return `Sequence took ${sequence.length} steps. It was ${sequence}`;
+        //     }
+        //     if (n % 2 === 0) {
+        //         n = n / 2;
+        //     } else {
+        //         n = 3 * n + 1;
+        //     }
+        //     return collatz(n, [...sequence, n]);
+        // }
+
+
+
+        //callback hell
+
+        // login(username, function (error, user) {
+        //     if (error) {
+        //         throw error;
+        //     } else {
+        //         getPlayerInfo(user.id, function (error, info) {
+        //             if (error) {
+        //                 throw error;
+        //             } else {
+        //                 loadGame(info, function (error, game) {
+        //                     if (error) {
+        //                         throw error;
+        //                     } else {
+        //                         //run this game
+        //                     }
+        //                 })
+        //             }
+        //         })
+        //     }
+        // })
+
+
+
+
+
+
+        //Generators
+
+        // function* fibonacci(a, b){
+        //     let [prev, current] = [a, b];
+        //     while(true){
+        //         [prev, current] = [current, prev + current];
+        //         yield (console.log(current))
+        //     }
+        // }
+
+
+
+//-------------------------------------------------------
+//async and await video
+//---------------------------------------------------
+
+            // console.log('person1: shows ticket')
+            // console.log('person2: shows ticket')
+
+            // const getTicketFromwife = new Promise((resolve, reject) => {
+            //     setTimeout(() => {
+            //         resolve('ticket')
+            //     }, 5000)
+            // })
+            
+            // const getPopcorn = getTicketFromwife.then((t) => {
+            //     console.log('husband: we should go in');
+            //     console.log('wife: no i want popcorn');
+            //     return new Promise((resolve, reject) => resolve(`${t} popcorn` ));
+            // })
+
+            // const getButter = getPopcorn.then((t) => {
+            //     console.log('husband: can we go in now');
+            //     console.log('wife: no i want some butter also');
+            //     return new Promise((resolve, reject) => resolve(`${t} butter`));
+            // })
+
+            // getButter.then((t) => console.log(t))
+
+            // console.log('person4: shows ticket')
+            // console.log('person5: shows ticket')
+
+
+            // const daAsync = async () => {
+            //     const getTicketFromwife = new Promise((resolve, reject) => setTimeout(resolve('first ticket'), 3000));
+            //     const getPopcorn = new Promise ((resolve, reject) => resolve('plenty plenty popcorn'));
+            //     const getButter = new Promise((resolve, reject) => resolve('just chikili butter'))
+
+            //     let ticket = await getTicketFromwife;
+            //     console.log(`husband: we should go in take ${ticket}`);
+            //     console.log('wife: no i want popcorn');
+
+            //     let popcorn = await getPopcorn;
+            //     console.log(`husband: ${popcorn} can we go in now`);
+            //     console.log('wife: no i want some butter also');
+
+            //     let butter = await getButter;
+            //     console.log(`${butter}`)
+            //     console.log('lets go')
+
+            //     await Promise.all([])//if i wanted to get them all at once
+
+            //     return ticket
+            // }
+
+            // daAsync().then( m => console.log(m))
+
+
+
+//-------------------------------------------------------------------
+//Currying------------------------------------------------------------
+//-------------------------------------------------------------------
+
+            function multiplier (x, y){
+                if(y === undefined){
+                    return function (z){
+                        return x * z
+                    }
+                }else{
+                    return x * y
+                }
+            }
+
+            calcTax = multiplier(0.44)
+
+            console.log(calcTax(1000))
+
+            
+    </script>
+</body>
+
+</html>

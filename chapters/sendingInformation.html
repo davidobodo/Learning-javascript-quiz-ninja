@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sending information with ajax</title>
+</head>
+
+<body>
+    <form action="https://jsonplaceholder.typicode.com/todos" method="POST" id="todo">
+        <input type="text" id="task" placeholder="Add task" autofocus required />
+        <button type="submit">Add task</button>
+    </form>
+
+    <script>
+        const form = document.forms["todo"];
+        form.addEventListener("submit", addTask, false);
+
+        function addTask(event) {
+            event.preventDefault();
+            const number = form.task.value;
+            const task = {
+                userId: 1,
+                title: form.task.value,
+                completed: false
+            };
+            const data = JSON.stringify(task);
+            const headers = new Headers({
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            });
+            const request = new Request(form.action, {
+                method: form.method,
+                headers: headers,
+                body: data
+            })
+
+            fetch(request)
+                .then(response => response.json())
+                .then(task => console.log(`Task saved with an id of ${task.id}`))
+                .catch(error => console.log("There was an error :", error))
+        }
+    </script>
+</body>
+
+</html>

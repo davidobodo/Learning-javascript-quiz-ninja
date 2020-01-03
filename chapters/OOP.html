@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // class Turtle {
+        //     constructor(name) {
+        //         this.name = name;
+        //         this.weapon = 'hands'
+        //     }
+        //     sayHi() {
+        //         return `Hi dude, my name is ${this.name}`;
+        //     }
+        //     attack() {
+        //         return `Feel the power of my ${this.weapon}!`;
+        //     }
+        // }
+
+        // const leo = new Turtle('Leonardo')
+        // const raph = new Turtle('Raphael')
+        
+        // class Turtle{
+        //     constructor(name, color){
+        //         this.name = name;
+        //         let _color = color;
+        //         this.setColor = color => { 
+        //             if(typeof color === 'string'){
+        //                 return _color = color;
+        //             }else{
+        //                 throw new Error('Color must be a string')
+        //             }
+        //         }
+        //         this.getColor = () => _color;
+        //     }
+        // }
+
+        // let raph = new Turtle('Raphael', 'Red');
+        // console.log(raph)
+
+            class Dice{
+                constructor(sides=6){
+                    Object.defineProperty(this, 'sides', {
+                        get(){
+                            return `This dice has ${sides} sides`;
+                        },
+                        set(value){
+                            if(value > 0){
+                                sides = value;
+                                return sides;
+                            }else{
+                                throw new Error('The number of sides must be positive');
+                            }
+                        }
+                    });
+
+                    this.roll = function(){
+                        return Math.floor(sides * Math.random() + 1)
+                    }
+                }
+            }
+
+    </script>
+</body>
+
+</html>
