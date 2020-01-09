@@ -3,7 +3,6 @@ const url = "https://spbooks.github.io/jsninja2/questions.json";
 fetch(url)
     .then(res => res.json())
     .then(quiz => {
-        console.log("it fires immediately")
         view.start.addEventListener('click', () => game.start(quiz.questions), false);
         view.response.addEventListener('click', (e) => game.check(e), false);
     })
@@ -116,6 +115,16 @@ const game = {
         view.render(view.info, `Game Over, you scored ${this.score} point${this.score !== 1 ? 's' : ''}`);
         view.teardown();
         clearInterval(this.timer);
+        this.hiScore();
+    },
+
+    hiScore() {
+        console.log("hehehe")
+        const hi = localStorage.getItem('highScore') || 0;
+        if (this.score > hi || hi === 0) {
+            localStorage.setItem('highScore', this.score);
+        }
+        return localStorage.getItem('highScore')
     }
 }
 
