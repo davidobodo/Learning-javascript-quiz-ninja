@@ -1,0 +1,22 @@
+{
+  "name": "quiz_ninja",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/obododavid/quiz-ninja.git"
+  },
+  "author": "Obodo David",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/obododavid/quiz-ninja/issues"
+  },
+  "homepage": "https://github.com/obododavid/quiz-ninja#readme",
+  "dependencies": {
+    "typescript": "^3.7.4"
+  }
+}
