@@ -126,7 +126,7 @@ var game = {
         console.log("hehehe");
         var hi = localStorage.getItem('highScore') || 0;
         if (this.score > hi || hi === 0) {
-            // localStorage.setItem('highScore', game.score);
+            localStorage.setItem('highScore', JSON.stringify(game.score));
         }
         return localStorage.getItem('highScore');
     }
