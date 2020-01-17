@@ -49,11 +49,13 @@ var view = {
         target.innerHTML = content;
     },
     setup: function () {
+        // console.log(this) // refers to view object
+        console.log(this.score);
         this.show(this.question);
         this.show(this.response);
         this.show(this.result);
         this.hide(this.start);
-        this.render(this.score, this.score);
+        this.render(this.score, game.score);
         this.render(this.result, '');
         this.render(this.info, '');
     },
@@ -94,8 +96,8 @@ var game = {
         }
     },
     countdown: function () {
+        // console.log(this) // refers to window object
         game.secondsRemaining--;
-        console.log(game.secondsRemaining);
         view.render(view.timer, game.secondsRemaining);
         if (game.secondsRemaining <= 0) {
             game.gameOver();
