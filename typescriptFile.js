@@ -50,7 +50,6 @@ var view = {
     },
     setup: function () {
         // console.log(this) // refers to view object
-        console.log(this.score);
         this.show(this.question);
         this.show(this.response);
         this.show(this.result);
@@ -104,6 +103,7 @@ var game = {
         }
     },
     check: function (e) {
+        console.log(e);
         var response = e.target.textContent;
         var answer = this.question.realName;
         if (response === answer) {
@@ -123,7 +123,6 @@ var game = {
         this.hiScore();
     },
     hiScore: function () {
-        console.log("hehehe");
         var hi = localStorage.getItem('highScore') || 0;
         if (this.score > hi || hi === 0) {
             localStorage.setItem('highScore', JSON.stringify(game.score));

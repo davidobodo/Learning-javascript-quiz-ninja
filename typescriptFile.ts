@@ -7,14 +7,14 @@ fetch(url)
         view.response.addEventListener('click', (e) => game.check(e), false);
     })
 
-function random(a, b = 1) {
+function random(a: number, b = 1): number {
     if (b === 1) {
         [a, b] = [b, a];
     }
     return Math.floor((b - a + 1) * Math.random()) + a;
 }
 
-function shuffle(array) {
+function shuffle(array: number[]): void {
     for (let i = array.length; i; i--) {
         let j = random(i) - 1;
         [array[i - 1], array[j]] = [array[j], array[i - 1]];
@@ -30,13 +30,13 @@ const view = {
     start: document.getElementById('start'),
     response: document.querySelector('#response'),
     timer: document.querySelector('#timer strong'),
-    show(element) {
+    show(element: HTMLElement) {
         element.style.display = 'block';
     },
-    hide(element) {
+    hide(element: HTMLElement) {
         element.style.display = 'none';
     },
-    render(target, content, attributes?: any) {
+    render(target: Element, content?: any, attributes?: any) {
         for (const key in attributes) {
             target.setAttribute(key, attributes[key]);
         }
@@ -44,7 +44,6 @@ const view = {
     },
     setup() {
         // console.log(this) // refers to view object
-        console.log(this.score)
         this.show(this.question);
         this.show(this.response);
         this.show(this.result);
@@ -58,7 +57,7 @@ const view = {
         this.hide(this.response);
         this.show(this.start);
     },
-    buttons(array) {
+    buttons(array: string[]) {
         return array.map(value => `<button>${value}</button>`).join('')
     }
 }
@@ -102,6 +101,7 @@ const game = {
     },
 
     check(e) {
+        console.log(e)
         const response = e.target.textContent;
         const answer = this.question.realName;
         if (response === answer) {
@@ -122,7 +122,6 @@ const game = {
     },
 
     hiScore() {
-        console.log("hehehe")
         const hi = localStorage.getItem('highScore') || 0;
         if (this.score > hi || hi === 0) {
             localStorage.setItem('highScore', JSON.stringify(game.score));
