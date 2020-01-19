@@ -100,7 +100,7 @@ const game = {
         }
     },
 
-    check(e: MouseEvent) {
+    check(e: Event) {
         const response = ((e.target) as HTMLElement).textContent;
         const answer = this.question.realName;
         if (response === answer) {

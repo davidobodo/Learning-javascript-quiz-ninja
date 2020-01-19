@@ -103,8 +103,7 @@ var game = {
         }
     },
     check: function (e) {
-        console.log(e);
-        var response = e.target.textContent;
+        var response = (e.target).textContent;
         var answer = this.question.realName;
         if (response === answer) {
             view.render(view.result, 'Correct!', { 'class': 'correct' });
