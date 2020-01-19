@@ -100,9 +100,8 @@ const game = {
         }
     },
 
-    check(e) {
-        console.log(e)
-        const response = e.target.textContent;
+    check(e: MouseEvent) {
+        const response = ((e.target) as HTMLElement).textContent;
         const answer = this.question.realName;
         if (response === answer) {
             view.render(view.result, 'Correct!', { 'class': 'correct' });
